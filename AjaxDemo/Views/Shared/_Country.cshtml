@@ -1,0 +1,22 @@
+﻿@model IEnumerable<AjaxDemo.Models.Customer>
+<table>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.ContactName)</th>
+        <th>@Html.DisplayNameFor(model => model.Address)</th>
+        <th>@Html.DisplayNameFor(model => model.CompanyName)</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+        </tr>
+    }
+</table>

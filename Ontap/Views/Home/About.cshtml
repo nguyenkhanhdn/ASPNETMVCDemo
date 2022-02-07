@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>
+<h2>Your infor</h2>
+@{
+    var info = Session["userInfo"] as Ontap.Models.LoginModel;
+}
+
+
+<h3>User id: @info.LoginId</h3>
+<h3>User id: @info.LoginId</h3>

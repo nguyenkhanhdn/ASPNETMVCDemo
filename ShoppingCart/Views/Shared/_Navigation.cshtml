@@ -1,0 +1,21 @@
+﻿@using ShoppingCart.Models
+@model CatProViewModel
+
+<!--- Sidemenu -->
+<div id="sidebar-menu">
+    <ul>
+        @{ 
+            var categories = Model.Categories;
+        }
+        @foreach (var menu in categories)
+        {
+        <li class="has_sub">
+            @*@Url.Action("Index", "Home", new { id = menu.CategoryID })*@
+            @Html.ActionLink(menu.CategoryName, "Index", "Home", new { id = menu.CategoryID }, null)
+        </li>
+         
+        }
+    </ul>
+    <div class="clearfix"></div>
+</div>
+<!-- Sidebar -->

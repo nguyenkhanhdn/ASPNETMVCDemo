@@ -1,0 +1,27 @@
+﻿@{ViewBag.Title = "Home Page";}
+<h2>Customers</h2>
+@Ajax.ActionLink("Customer from Germany", // <-- Text to display
+                 "Germany", // <-- Action Method Name
+                 new AjaxOptions
+                 {
+                     UpdateTargetId = "CustomerList", // <-- DOM element ID to update
+                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                     LoadingElementId = "loadingImage",
+                     HttpMethod = "GET" // <-- HTTP method
+                 })
+@Ajax.ActionLink("Customer from Mexico", // <-- Text to display
+                 "Mexico", // <-- Action Method Name
+                 new AjaxOptions
+                 {
+                     UpdateTargetId = "CustomerList", // <-- DOM element ID to update
+                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                     LoadingElementId = "loadingImage",
+                     HttpMethod = "GET" // <-- HTTP method
+                 })
+<div id="CustomerList">Placeholder</div>
+<div id="loadingImage" style="display:none;">
+    <img src="~/Content/images/loading_spinner.gif" />
+</div>
+@section scripts{
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+}

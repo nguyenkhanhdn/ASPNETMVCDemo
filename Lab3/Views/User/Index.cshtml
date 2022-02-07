@@ -1,0 +1,14 @@
+﻿@*@model Lab3.Models.User*@
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@{ var user = ViewBag.user;
+    foreach (var u in user)
+    {
+        @u.UserId <br />
+        @u.Name <br />
+        @u.Address <br />
+    }
+}

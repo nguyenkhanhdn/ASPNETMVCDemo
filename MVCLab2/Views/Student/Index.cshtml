@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@*<a href="/Student/Register?Id=S001&Name=Tuấn&Mark=7">Tuấn</a>
+<br />
+<a href="/Student/Register?Id=S002&Name=Phương&Mark=8">Phương</a>*@
+
+<form action="/student/Register" method="post">
+    <div>Id</div> <input name="Id" />
+    <div>Name</div> <input name="Name" />
+    <div>Mark</div> <input name="Mark" />
+    <hr />
+    <input type="submit" value="Register"/>
+</form>

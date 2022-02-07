@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Write";
+}
+
+<h2>Write</h2>
+
+
+@{Html.BeginForm("Write", "FileUpload", FormMethod.Post);}
+
+Name: <input type="text" name="sname" /> <br />
+Email: <input type="text" name="semail" /> <br />
+
+<input type="submit" value="Save" />
+
+@{Html.EndForm();    }

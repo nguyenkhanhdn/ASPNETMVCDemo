@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>HOME PAGE </h2>
+<h3>Will show list of some highlight products</h3>
+<div class="row">
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="~/Content/images/01.jpg" style="width:100%;" />
+            </div>
+            <div class="col-md-9">
+                Product ID: 01 <br />
+                Product Name: Sản phẩm 01 <br />
+                Price: 100 <br />
+                <p>
+                    @Html.ActionLink("Add to cart", "AddToCart", "Home", new { @Id = 1 }, new { @class = "btn btn-primary" })
+                </p>
+            </div>
+            <div class="col-md-3">
+                <img src="~/Content/images/02.jpg" style="width:100%;" />
+            </div>
+            <div class="col-md-9">
+                Product ID: 02 <br />
+                Product Name: Sản phẩm 02 <br />
+                Price: 200 <br />
+                <p>
+                    @Html.ActionLink("Add to cart", "AddToCart", "Home", new { @Id = 2 }, new { @class = "btn btn-primary" })
+                </p>
+            </div>
+            <div class="col-md-3">
+                <img src="~/Content/images/03.jpg" style="width:100%;" />
+            </div>
+            <div class="col-md-9">
+                Product ID: 03 <br />
+                Product Name: Sản phẩm 03 <br />
+                Price: 300 <br />
+                <p>
+                    @Html.ActionLink("Add to cart", "AddToCart", "Home", new { @Id = 2 }, new { @class = "btn btn-primary" })
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>

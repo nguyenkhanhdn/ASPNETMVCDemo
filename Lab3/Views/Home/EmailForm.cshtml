@@ -1,0 +1,20 @@
+﻿@model Lab3.Models.Email
+@{
+    ViewBag.Title = "EmailForm";
+}
+
+<h2>EmailForm</h2>
+@using (Html.BeginForm("EmailForm", "Home"))
+{
+    @Html.Label("Email","E-mail:")
+    @Html.DropDownList("Emails", "Select an email:")
+
+    <hr />
+
+    @Html.Label("Emails", "E-mail:")
+    @Html.ListBox("Subject")
+
+    <br/>
+    <input type="submit" value="Submit"/>
+
+}

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<ShoppingCart.Models.Category>
+
+
+<table class="table">
+ 
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+ 
+        <td>
+            @Html.ActionLink("View by Category", "Index", new { id=item.CategoryID })
+        </td>
+    </tr>
+}
+    <tr>
+        <td>
+            All Categories
+        </td>
+
+        <td>
+            @Html.ActionLink("View all", "Index")
+        </td>
+    </tr>
+</table>

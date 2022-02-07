@@ -1,0 +1,27 @@
+﻿@model AjaxDemo.Models.Customer
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+<div>
+    <h4>Customer</h4>
+    @using (Ajax.BeginForm("Search", "Customer", new AjaxOptions
+    {
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "POST",
+        OnFailure = "searchFailed",
+        LoadingElementId = "ajax-loader",
+        UpdateTargetId = "searchresults",
+    }))
+    {
+        <input type="text" name="customerId" />
+        <input type="Submit" value="search" />
+        <img src="~/Content/images/loading_spinner.gif" style="display:none"/>
+    }
+</div>
+<div id="searchresults">
+    @Html.Partial("_Customer")
+</div>

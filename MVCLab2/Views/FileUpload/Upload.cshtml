@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Upload";
+}
+<h2>Information</h2>
+<h2>File Name: @ViewBag.FileName</h2>
+<h2>Status: @ViewBag.Status</h2>
+
+<h2>Upload</h2>
+
+@{Html.BeginForm("Upload", "FileUpload", FormMethod.Post, new { enctype = "multipart/form-data" }); }
+    
+Select file <input type="file" name="document" /> <br />
+<input type="submit" />
+
+@{Html.EndForm();    }

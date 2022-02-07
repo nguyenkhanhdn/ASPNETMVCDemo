@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+<table class="table table-bordered">
+    <tr>
+        <td>Student Name</td>
+        <td>
+            <input type="text" name="sName" id="sName" class="form-control" required="" />
+        </td>
+    </tr>
+    <tr>
+        <td>Student Address</td>
+        <td>
+            <input type="text" name="Address" id="Address" class="form-control" required="" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div style="text-align:center; display:inline-block;">
+                <input class="btn btn-primary" name="btnSave" id="btnSave" value="Save" type="button">
+            </div>
+        </td>
+    </tr>
+</table>
+<hr />
+<table id="tblStudent" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th align="left">ID</th>
+            <th align="left">Student Name</th>
+            <th align="left">Student Address</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+    $(function () {
+        LoadData();
+        $("#btnSave").click(function () {
+            //alert("");
+            var std = {};
+            std.StudentName = $("#sName").val();
+            std.StudentAddress = $("#Address").val();
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("CreateStudent")',
+                data: '{std: ' + JSON.stringify(std) + '}',
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function () {
+                   // alert("Data has been added successfully.");
+                    LoadData();
+                },
+                error: function () {
+                    alert("Error while inserting data");
+                }
+            });
+            return false;
+        });
+    });
+
+    function LoadData() {
+        $("#tblStudent tbody tr").remove();
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("GetStudent")',
+            dataType: 'json',
+            data: { id: '' },
+            success: function (data) {
+                var items = '';
+                $.each(data, function (i, item) {
+                    var rows = "<tr>"
+                    + "<td>" + item.StudentId + "</td>"
+                    + "<td>" + item.StudentName + "</td>"
+                    + "<td>" + item.StudentAddress + "</td>"
+                    + "</tr>";
+                    $('#tblStudent tbody').append(rows);
+                });
+            },
+            error: function (ex) {
+                var r = jQuery.parseJSON(response.responseText);
+                alert("Message: " + r.Message);
+                alert("StackTrace: " + r.StackTrace);
+                alert("ExceptionType: " + r.ExceptionType);
+            }
+        });
+        return false;
+    }
+    </script>
+} 

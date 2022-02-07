@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "YourCart";
+}
+<h2>YourCart</h2>
+@{ var cart = Session["cart"] as WADReview.Controllers.ShoppingCart;}
+<table>
+    <tr>
+        <td>Product ID</td>
+        <td>Quantity</td>
+        <td>Price</td>
+        <td>Action</td>
+    </tr>
+    @if (cart != null)
+    {
+        for (int i = 0; i < cart.CartItems.Rows.Count; i++)
+        {
+            <tr>
+                <td>@cart.CartItems.Rows[i][0].ToString()</td>
+                <td>@cart.CartItems.Rows[i][1].ToString()</td>
+                <td>@cart.CartItems.Rows[i][2].ToString()</td>
+                <td>
+                    @Html.ActionLink("Delete", "RemoveItem", "Home",
+             new { @Id = cart.CartItems.Rows[i][0].ToString() },
+             new { @class = "btn btn-primary" })
+            </td>
+        </tr>
+    }
+
+}
+</table>

@@ -1,0 +1,47 @@
+﻿<h2>TestBeginForm</h2>
+@using (Ajax.BeginForm("NewInsert", "Test", new AjaxOptions
+{
+    HttpMethod = "GET",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "TargetDiv"
+}))
+{
+    <input type="text" name="textToInsert" />
+    <input type="submit" value="Insert It" />
+}
+<h3>INSERT</h3>
+@using (Ajax.BeginForm("NewInsert", "Test", new AjaxOptions
+{
+    HttpMethod = "GET",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "TargetDiv"
+}))
+{
+    <input type="text" name="textToInsert" />
+    <input type="submit" value="Insert It" />
+}
+<div id="TargetDiv">
+    No text inserted yet
+</div>
+<h3>GET</h3>
+@using (Ajax.BeginForm("GetText", "Test", new AjaxOptions
+{
+    HttpMethod = "GET",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "TargetDiv"
+}))
+{
+    <input type="text" name="q" />
+    <input type="submit" value="Get it" />
+}
+<h3>POST</h3>
+@using (Ajax.BeginForm("PostInsert", new AjaxOptions
+{
+    HttpMethod = "POST",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "TargetDiv"
+}))
+{
+    <input type="text" name="p" />
+    <input type="submit" value="Post it!" />
+}  

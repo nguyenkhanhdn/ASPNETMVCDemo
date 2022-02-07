@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Ajax.BeginForm("ExamineTextBox", new AjaxOptions { UpdateTargetId = "result" }))
+{ 
+    @Html.TextBox("textBox1")
+    <input type= "submit" value="Button"/>
+    <span id ="result" />
+}

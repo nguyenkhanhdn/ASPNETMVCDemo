@@ -1,0 +1,59 @@
+﻿@using SecurityDemo.Models
+@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.EntityFramework
+@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityUser>
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<h2>Available Users For Application</h2>
+
+@Html.ActionLink("Create User", "Create", "Users")
+
+<style type="text/css">
+    #tbrole, .c {
+        border: double;
+    }
+</style>
+
+<table class="table table-bordered table-responsive">
+    <tr>
+        <td class="c">
+            User Name
+        </td>
+        <td class="c">
+            Email
+        </td>
+        <td class="c">
+            Roles
+        </td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="c">
+                @item.UserName
+            </td>
+            <td class="c">
+                @item.Email
+            </td>
+            <td class="c">
+                <ul>
+                    @{
+                        var context = new ApplicationDbContext();
+
+                        var roleStore = new RoleStore<IdentityRole>(context);
+                        var roleManager = new RoleManager<IdentityRole>(roleStore);
+                    }
+                    @foreach (var role in item.Roles)
+                    {
+                        <li> 
+                            @roleManager.FindById(role.RoleId).Name
+                        </li>
+                    }
+                </ul>
+            </td>
+        </tr>
+    }
+</table>

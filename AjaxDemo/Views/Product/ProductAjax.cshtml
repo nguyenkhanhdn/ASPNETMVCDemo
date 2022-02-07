@@ -1,0 +1,51 @@
+﻿@model AjaxDemo.Models.ProductModel
+
+@{
+    ViewBag.Title = "Product Master Ajax";
+}
+
+<h2>Product Master</h2>
+
+<fieldset>
+    <legend>Product</legend>
+    @using (Ajax.BeginForm("ProductAjax", "Product", new AjaxOptions { UpdateTargetId = "Productresult" }))
+    {
+        <div id="Productresult"></div>
+        <div class="formRowContainer">
+            <div class="labelContainer">Name</div>
+            <div class="valueContainer">
+                @Html.TextBoxFor(model => model.Name)
+                @Html.ValidationMessage("Name")
+            </div>
+        </div>
+        <div class="clearStyle"></div>
+        <div class="formRowContainer">
+            <div class="labelContainer">Description</div>
+            <div class="valueContainer">@Html.TextBoxFor(model => model.Description)</div>
+        </div>
+        <div class="clearStyle"></div>
+        <div class="formRowContainer">
+            <div class="labelContainer">Manufacturer</div>
+            <div class="valueContainer">@Html.TextBoxFor(model => model.Manufacturer)</div>
+        </div>
+        <div class="clearStyle"></div>
+        <div class="formRowContainer">
+            <div class="labelContainer">Price</div>
+            <div class="valueContainer">
+                @Html.TextBoxFor(model => model.BasePrice)
+                @Html.ValidationMessage("BasePrice")
+            </div>
+        </div>
+        <div class="clearStyle"></div>
+        <div class="formRowContainer">
+            <div class="labelContainer">Category</div>
+            <div class="valueContainer">
+                @Html.DropDownListFor(model => model.CategoryId, Model.Category, "--Select--")
+            </div>
+        </div>
+        <div class="clearStyle"></div>
+        <div class="buttonContainer">
+            <button>Add Product</button>
+        </div>
+    }
+</fieldset>

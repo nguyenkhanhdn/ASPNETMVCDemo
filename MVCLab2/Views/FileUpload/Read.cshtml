@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Read";
+}
+
+<h2>Read</h2>
+
+@{Html.BeginForm("Read", "FileUpload", FormMethod.Post);}
+
+Name: <input type="text" name="txtname" value="@ViewBag.SName" /> <br />
+Email: <input type="text" name="txtemail" value="@ViewBag.Email" /> <br />
+
+<input type="submit" value="Save" />
+
+@{Html.EndForm();    }

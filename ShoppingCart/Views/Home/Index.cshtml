@@ -1,0 +1,31 @@
+﻿@model ShoppingCart.Models.CatProViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+<div class="row">
+    @{
+        var products = Model.Products;
+        foreach (var p in products)
+        {
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="~/Content/images/ms.png" style="width:140%;" />
+                    </div>
+                    <div class="col-md-9">
+                        Product ID: @p.ProductID <br />
+                        Product ID: @p.ProductName <br />
+                        Product ID: @p.UnitPrice <br />
+                        Product ID: @p.Category.CategoryName <br />
+                        <p>
+                            @Html.ActionLink("Add to cart", "AddToCart", "Home",
+                     new { @Id = @p.ProductID }, new { @class = "btn btn-primary" })
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>

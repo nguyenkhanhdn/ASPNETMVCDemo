@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Calculate";
+}
+
+<h2>Calculate</h2>
+@{ 
+    var operators = new string[] { "+", "-", "*", "/" };
+    var kq = Convert.ToString(ViewBag.Kq);
+}
+@{Html.BeginForm(); }
+    @Html.TextBox("a", "0", new { Placeholder = "toán hạng a" })
+    @Html.DropDownList("o", new SelectList(operators))
+    @Html.TextBox("b", "0", new { Placeholder = "toán hạng b" })
+    <input type="submit" value="="/>
+
+    @Html.TextBox("kq", (string)kq, new {Placeholder="Kết quả"})
+
+@{Html.EndForm();}
